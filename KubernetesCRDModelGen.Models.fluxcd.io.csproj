@@ -2,5 +2,6 @@
   <PropertyGroup>
     <PackageId>KubernetesCRDModelGen.Models.fluxcd.io</PackageId>
     <RepositoryUrl>https://github.com/IvanJosipovic/KubernetesCRDModelGen.Models.fluxcd.io</RepositoryUrl>
+    <Description>C# models for Kubernetes CRDs in group fluxcd.io</Description>
   </PropertyGroup>
 </Project>
