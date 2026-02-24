@@ -96,6 +96,8 @@ spec:
                       - ImagePolicy
                       - ImageUpdateAutomation
                       - OCIRepository
+                      - ArtifactGenerator
+                      - ExternalArtifact
                       type: string
                     matchLabels:
                       additionalProperties:
@@ -315,6 +317,8 @@ spec:
                       - ImagePolicy
                       - ImageUpdateAutomation
                       - OCIRepository
+                      - ArtifactGenerator
+                      - ExternalArtifact
                       type: string
                     matchLabels:
                       additionalProperties:
