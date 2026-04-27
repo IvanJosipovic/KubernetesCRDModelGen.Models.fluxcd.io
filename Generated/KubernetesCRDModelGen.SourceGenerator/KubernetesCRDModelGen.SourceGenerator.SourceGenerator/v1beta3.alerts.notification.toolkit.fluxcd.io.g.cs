@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace KubernetesCRDModelGen.Models.notification.toolkit.fluxcd.io;
 /// <summary>Alert is the Schema for the alerts API</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
 public partial class V1beta3AlertList : IKubernetesObject<V1ListMeta>, IItems<V1beta3Alert>
@@ -33,14 +33,14 @@ public partial class V1beta3AlertList : IKubernetesObject<V1ListMeta>, IItems<V1
 
     /// <summary>List of V1beta3Alert objects.</summary>
     [JsonPropertyName("items")]
-    public IList<V1beta3Alert>? Items { get; set; }
+    public required IList<V1beta3Alert> Items { get; set; }
 }
 
 /// <summary>
 /// EventSeverity specifies how to filter events based on severity.
 /// If set to &apos;info&apos; no events will be filtered.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta3AlertSpecEventSeverityEnum>))]
 public enum V1beta3AlertSpecEventSeverityEnum
 {
@@ -51,7 +51,7 @@ public enum V1beta3AlertSpecEventSeverityEnum
 }
 
 /// <summary>Kind of the referent</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta3AlertSpecEventSourcesKindEnum>))]
 public enum V1beta3AlertSpecEventSourcesKindEnum
 {
@@ -85,7 +85,7 @@ public enum V1beta3AlertSpecEventSourcesKindEnum
 /// CrossNamespaceObjectReference contains enough information to let you locate the
 /// typed referenced object at cluster level
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1beta3AlertSpecEventSources
 {
@@ -119,7 +119,7 @@ public partial class V1beta3AlertSpecEventSources
 }
 
 /// <summary>ProviderRef specifies which Provider this Alert should use.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1beta3AlertSpecProviderRef
 {
@@ -129,7 +129,7 @@ public partial class V1beta3AlertSpecProviderRef
 }
 
 /// <summary>AlertSpec defines an alerting rule for events involving a list of objects.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1beta3AlertSpec
 {
@@ -191,7 +191,7 @@ public partial class V1beta3AlertSpec
 }
 
 /// <summary>Alert is the Schema for the alerts API</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
 public partial class V1beta3Alert : IKubernetesObject<V1ObjectMeta>, ISpec<V1beta3AlertSpec?>

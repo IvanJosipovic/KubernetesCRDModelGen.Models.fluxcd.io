@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace KubernetesCRDModelGen.Models.image.toolkit.fluxcd.io;
 /// <summary>ImageRepository is the Schema for the imagerepositories API</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
@@ -34,14 +34,14 @@ public partial class V1beta2ImageRepositoryList : IKubernetesObject<V1ListMeta>,
 
     /// <summary>List of V1beta2ImageRepository objects.</summary>
     [JsonPropertyName("items")]
-    public IList<V1beta2ImageRepository>? Items { get; set; }
+    public required IList<V1beta2ImageRepository> Items { get; set; }
 }
 
 /// <summary>
 /// NamespaceSelector selects the namespaces to which this ACL applies.
 /// An empty map of MatchLabels matches all namespaces in a cluster.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public partial class V1beta2ImageRepositorySpecAccessFromNamespaceSelectors
@@ -59,7 +59,7 @@ public partial class V1beta2ImageRepositorySpecAccessFromNamespaceSelectors
 /// AccessFrom defines an ACL for allowing cross-namespace references
 /// to the ImageRepository object based on the caller&apos;s namespace labels.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public partial class V1beta2ImageRepositorySpecAccessFrom
@@ -89,7 +89,7 @@ public partial class V1beta2ImageRepositorySpecAccessFrom
 /// Note: Support for the `caFile`, `certFile` and `keyFile` keys has
 /// been deprecated.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public partial class V1beta2ImageRepositorySpecCertSecretRef
@@ -103,7 +103,7 @@ public partial class V1beta2ImageRepositorySpecCertSecretRef
 /// The provider used for authentication, can be &apos;aws&apos;, &apos;azure&apos;, &apos;gcp&apos; or &apos;generic&apos;.
 /// When not specified, defaults to &apos;generic&apos;.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta2ImageRepositorySpecProviderEnum>))]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public enum V1beta2ImageRepositorySpecProviderEnum
@@ -122,7 +122,7 @@ public enum V1beta2ImageRepositorySpecProviderEnum
 /// ProxySecretRef specifies the Secret containing the proxy configuration
 /// to use while communicating with the container registry.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public partial class V1beta2ImageRepositorySpecProxySecretRef
@@ -138,7 +138,7 @@ public partial class V1beta2ImageRepositorySpecProxySecretRef
 /// created with `kubectl create secret docker-registry`, or the
 /// equivalent.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public partial class V1beta2ImageRepositorySpecSecretRef
@@ -152,7 +152,7 @@ public partial class V1beta2ImageRepositorySpecSecretRef
 /// ImageRepositorySpec defines the parameters for scanning an image
 /// repository, e.g., `fluxcd/flux`.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public partial class V1beta2ImageRepositorySpec
@@ -252,7 +252,7 @@ public partial class V1beta2ImageRepositorySpec
 }
 
 /// <summary>status of the condition, one of True, False, Unknown.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta2ImageRepositoryStatusConditionsStatusEnum>))]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public enum V1beta2ImageRepositoryStatusConditionsStatusEnum
@@ -266,7 +266,7 @@ public enum V1beta2ImageRepositoryStatusConditionsStatusEnum
 }
 
 /// <summary>Condition contains details for one aspect of the current state of this API Resource.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public partial class V1beta2ImageRepositoryStatusConditions
@@ -313,7 +313,7 @@ public partial class V1beta2ImageRepositoryStatusConditions
 }
 
 /// <summary>LastScanResult contains the number of fetched tags.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public partial class V1beta2ImageRepositoryStatusLastScanResult
@@ -340,7 +340,7 @@ public partial class V1beta2ImageRepositoryStatusLastScanResult
 }
 
 /// <summary>ImageRepositoryStatus defines the observed state of ImageRepository</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 public partial class V1beta2ImageRepositoryStatus
@@ -382,7 +382,7 @@ public partial class V1beta2ImageRepositoryStatus
 }
 
 /// <summary>ImageRepository is the Schema for the imagerepositories API</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageRepository is deprecated, upgrade to v1")]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]

@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace KubernetesCRDModelGen.Models.notification.toolkit.fluxcd.io;
 /// <summary>Receiver is the Schema for the receivers API.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Receiver is deprecated, upgrade to v1")]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
@@ -34,11 +34,11 @@ public partial class V1beta2ReceiverList : IKubernetesObject<V1ListMeta>, IItems
 
     /// <summary>List of V1beta2Receiver objects.</summary>
     [JsonPropertyName("items")]
-    public IList<V1beta2Receiver>? Items { get; set; }
+    public required IList<V1beta2Receiver> Items { get; set; }
 }
 
 /// <summary>Kind of the referent</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta2ReceiverSpecResourcesKindEnum>))]
 [global::System.Obsolete("v1beta2 Receiver is deprecated, upgrade to v1")]
 public enum V1beta2ReceiverSpecResourcesKindEnum
@@ -73,7 +73,7 @@ public enum V1beta2ReceiverSpecResourcesKindEnum
 /// CrossNamespaceObjectReference contains enough information to let you locate the
 /// typed referenced object at cluster level
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Receiver is deprecated, upgrade to v1")]
 public partial class V1beta2ReceiverSpecResources
@@ -111,7 +111,7 @@ public partial class V1beta2ReceiverSpecResources
 /// SecretRef specifies the Secret containing the token used
 /// to validate the payload authenticity.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Receiver is deprecated, upgrade to v1")]
 public partial class V1beta2ReceiverSpecSecretRef
@@ -125,7 +125,7 @@ public partial class V1beta2ReceiverSpecSecretRef
 /// Type of webhook sender, used to determine
 /// the validation procedure and payload deserialization.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta2ReceiverSpecTypeEnum>))]
 [global::System.Obsolete("v1beta2 Receiver is deprecated, upgrade to v1")]
 public enum V1beta2ReceiverSpecTypeEnum
@@ -155,7 +155,7 @@ public enum V1beta2ReceiverSpecTypeEnum
 }
 
 /// <summary>ReceiverSpec defines the desired state of the Receiver.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Receiver is deprecated, upgrade to v1")]
 public partial class V1beta2ReceiverSpec
@@ -198,7 +198,7 @@ public partial class V1beta2ReceiverSpec
 }
 
 /// <summary>status of the condition, one of True, False, Unknown.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta2ReceiverStatusConditionsStatusEnum>))]
 [global::System.Obsolete("v1beta2 Receiver is deprecated, upgrade to v1")]
 public enum V1beta2ReceiverStatusConditionsStatusEnum
@@ -212,7 +212,7 @@ public enum V1beta2ReceiverStatusConditionsStatusEnum
 }
 
 /// <summary>Condition contains details for one aspect of the current state of this API Resource.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Receiver is deprecated, upgrade to v1")]
 public partial class V1beta2ReceiverStatusConditions
@@ -259,7 +259,7 @@ public partial class V1beta2ReceiverStatusConditions
 }
 
 /// <summary>ReceiverStatus defines the observed state of the Receiver.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Receiver is deprecated, upgrade to v1")]
 public partial class V1beta2ReceiverStatus
@@ -297,7 +297,7 @@ public partial class V1beta2ReceiverStatus
 }
 
 /// <summary>Receiver is the Schema for the receivers API.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Receiver is deprecated, upgrade to v1")]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]

@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace KubernetesCRDModelGen.Models.notification.toolkit.fluxcd.io;
 /// <summary>Provider is the Schema for the providers API</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
 public partial class V1beta3ProviderList : IKubernetesObject<V1ListMeta>, IItems<V1beta3Provider>
@@ -33,7 +33,7 @@ public partial class V1beta3ProviderList : IKubernetesObject<V1ListMeta>, IItems
 
     /// <summary>List of V1beta3Provider objects.</summary>
     [JsonPropertyName("items")]
-    public IList<V1beta3Provider>? Items { get; set; }
+    public required IList<V1beta3Provider> Items { get; set; }
 }
 
 /// <summary>
@@ -47,7 +47,7 @@ public partial class V1beta3ProviderList : IKubernetesObject<V1ListMeta>, IItems
 /// 
 /// Legacy keys &quot;caFile&quot;, &quot;certFile&quot;, &quot;keyFile&quot; are supported but deprecated. Use &quot;ca.crt&quot;, &quot;tls.crt&quot;, &quot;tls.key&quot; instead.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1beta3ProviderSpecCertSecretRef
 {
@@ -62,7 +62,7 @@ public partial class V1beta3ProviderSpecCertSecretRef
 /// HTTP/S address of the proxy server. Optional &apos;username&apos; and &apos;password&apos;
 /// keys can be provided for proxy authentication.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1beta3ProviderSpecProxySecretRef
 {
@@ -75,7 +75,7 @@ public partial class V1beta3ProviderSpecProxySecretRef
 /// SecretRef specifies the Secret containing the authentication
 /// credentials for this Provider.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1beta3ProviderSpecSecretRef
 {
@@ -85,7 +85,7 @@ public partial class V1beta3ProviderSpecSecretRef
 }
 
 /// <summary>Type specifies which Provider implementation to use.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta3ProviderSpecTypeEnum>))]
 public enum V1beta3ProviderSpecTypeEnum
 {
@@ -156,7 +156,7 @@ public enum V1beta3ProviderSpecTypeEnum
 }
 
 /// <summary>ProviderSpec defines the desired state of the Provider.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1beta3ProviderSpec
 {
@@ -268,7 +268,7 @@ public partial class V1beta3ProviderSpec
 }
 
 /// <summary>Provider is the Schema for the providers API</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
 public partial class V1beta3Provider : IKubernetesObject<V1ObjectMeta>, ISpec<V1beta3ProviderSpec?>
