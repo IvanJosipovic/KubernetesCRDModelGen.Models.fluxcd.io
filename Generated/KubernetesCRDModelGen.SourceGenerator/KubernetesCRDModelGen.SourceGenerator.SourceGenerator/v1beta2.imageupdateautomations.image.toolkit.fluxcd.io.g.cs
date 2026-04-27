@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace KubernetesCRDModelGen.Models.image.toolkit.fluxcd.io;
 /// <summary>ImageUpdateAutomation is the Schema for the imageupdateautomations API</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
@@ -34,14 +34,14 @@ public partial class V1beta2ImageUpdateAutomationList : IKubernetesObject<V1List
 
     /// <summary>List of V1beta2ImageUpdateAutomation objects.</summary>
     [JsonPropertyName("items")]
-    public IList<V1beta2ImageUpdateAutomation>? Items { get; set; }
+    public required IList<V1beta2ImageUpdateAutomation> Items { get; set; }
 }
 
 /// <summary>
 /// Reference gives a branch, tag or commit to clone from the Git
 /// repository.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecGitCheckoutRef
@@ -82,7 +82,7 @@ public partial class V1beta2ImageUpdateAutomationSpecGitCheckoutRef
 /// ready to make changes. If not present, the `spec.ref` field from the
 /// referenced `GitRepository` or its default will be used.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecGitCheckout
@@ -99,7 +99,7 @@ public partial class V1beta2ImageUpdateAutomationSpecGitCheckout
 /// Author gives the email and optionally the name to use as the
 /// author of commits.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecGitCommitAuthor
@@ -119,7 +119,7 @@ public partial class V1beta2ImageUpdateAutomationSpecGitCommitAuthor
 /// keypair as the value. It must be in the same namespace as the
 /// ImageUpdateAutomation.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecGitCommitSigningKeySecretRef
@@ -130,7 +130,7 @@ public partial class V1beta2ImageUpdateAutomationSpecGitCommitSigningKeySecretRe
 }
 
 /// <summary>SigningKey provides the option to sign commits with a GPG key</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecGitCommitSigningKey
@@ -146,7 +146,7 @@ public partial class V1beta2ImageUpdateAutomationSpecGitCommitSigningKey
 }
 
 /// <summary>Commit specifies how to commit to the git repository.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecGitCommit
@@ -183,7 +183,7 @@ public partial class V1beta2ImageUpdateAutomationSpecGitCommit
 /// automation. If missing, commits are pushed (back) to
 /// `.spec.checkout.branch` or its default.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecGitPush
@@ -220,7 +220,7 @@ public partial class V1beta2ImageUpdateAutomationSpecGitPush
 /// technically optional, but in practice mandatory until there are
 /// other kinds of source allowed.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecGit
@@ -250,7 +250,7 @@ public partial class V1beta2ImageUpdateAutomationSpecGit
 /// A label selector requirement is a selector that contains values, a key, and an operator that
 /// relates the key and values.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecPolicySelectorMatchExpressions
@@ -280,7 +280,7 @@ public partial class V1beta2ImageUpdateAutomationSpecPolicySelectorMatchExpressi
 /// PolicySelector allows to filter applied policies based on labels.
 /// By default includes all policies in namespace.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecPolicySelector
@@ -299,7 +299,7 @@ public partial class V1beta2ImageUpdateAutomationSpecPolicySelector
 }
 
 /// <summary>Kind of the referent.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta2ImageUpdateAutomationSpecSourceRefKindEnum>))]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public enum V1beta2ImageUpdateAutomationSpecSourceRefKindEnum
@@ -312,7 +312,7 @@ public enum V1beta2ImageUpdateAutomationSpecSourceRefKindEnum
 /// SourceRef refers to the resource giving access details
 /// to a git repository.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecSourceRef
@@ -335,7 +335,7 @@ public partial class V1beta2ImageUpdateAutomationSpecSourceRef
 }
 
 /// <summary>Strategy names the strategy to be used.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta2ImageUpdateAutomationSpecUpdateStrategyEnum>))]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public enum V1beta2ImageUpdateAutomationSpecUpdateStrategyEnum
@@ -349,7 +349,7 @@ public enum V1beta2ImageUpdateAutomationSpecUpdateStrategyEnum
 /// the repository. This can be left empty, to use the default
 /// value.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpecUpdate
@@ -368,7 +368,7 @@ public partial class V1beta2ImageUpdateAutomationSpecUpdate
 }
 
 /// <summary>ImageUpdateAutomationSpec defines the desired state of ImageUpdateAutomation</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationSpec
@@ -419,7 +419,7 @@ public partial class V1beta2ImageUpdateAutomationSpec
 }
 
 /// <summary>status of the condition, one of True, False, Unknown.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta2ImageUpdateAutomationStatusConditionsStatusEnum>))]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public enum V1beta2ImageUpdateAutomationStatusConditionsStatusEnum
@@ -433,7 +433,7 @@ public enum V1beta2ImageUpdateAutomationStatusConditionsStatusEnum
 }
 
 /// <summary>Condition contains details for one aspect of the current state of this API Resource.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationStatusConditions
@@ -480,7 +480,7 @@ public partial class V1beta2ImageUpdateAutomationStatusConditions
 }
 
 /// <summary>ImageRef represents an image reference.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationStatusObservedPolicies
@@ -499,7 +499,7 @@ public partial class V1beta2ImageUpdateAutomationStatusObservedPolicies
 }
 
 /// <summary>ImageUpdateAutomationStatus defines the observed state of ImageUpdateAutomation</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 public partial class V1beta2ImageUpdateAutomationStatus
@@ -554,7 +554,7 @@ public partial class V1beta2ImageUpdateAutomationStatus
 }
 
 /// <summary>ImageUpdateAutomation is the Schema for the imageupdateautomations API</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.2+8c7b4a3647c1e77cd3e3152af5701ec2357dafe9")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 ImageUpdateAutomation is deprecated, upgrade to v1")]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
