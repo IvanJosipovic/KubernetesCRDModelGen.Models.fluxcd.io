@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace KubernetesCRDModelGen.Models.notification.toolkit.fluxcd.io;
 /// <summary>Provider is the Schema for the providers API.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Provider is deprecated, upgrade to v1beta3")]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
@@ -44,7 +44,7 @@ public partial class V1beta2ProviderList : IKubernetesObject<V1ListMeta>, IItems
 /// Note: Support for the `caFile` key has
 /// been deprecated.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Provider is deprecated, upgrade to v1beta3")]
 public partial class V1beta2ProviderSpecCertSecretRef
@@ -58,7 +58,7 @@ public partial class V1beta2ProviderSpecCertSecretRef
 /// SecretRef specifies the Secret containing the authentication
 /// credentials for this Provider.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Provider is deprecated, upgrade to v1beta3")]
 public partial class V1beta2ProviderSpecSecretRef
@@ -69,7 +69,7 @@ public partial class V1beta2ProviderSpecSecretRef
 }
 
 /// <summary>Type specifies which Provider implementation to use.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta2ProviderSpecTypeEnum>))]
 [global::System.Obsolete("v1beta2 Provider is deprecated, upgrade to v1beta3")]
 public enum V1beta2ProviderSpecTypeEnum
@@ -129,7 +129,7 @@ public enum V1beta2ProviderSpecTypeEnum
 }
 
 /// <summary>ProviderSpec defines the desired state of the Provider.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Provider is deprecated, upgrade to v1beta3")]
 public partial class V1beta2ProviderSpec
@@ -193,7 +193,7 @@ public partial class V1beta2ProviderSpec
 }
 
 /// <summary>status of the condition, one of True, False, Unknown.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1beta2ProviderStatusConditionsStatusEnum>))]
 [global::System.Obsolete("v1beta2 Provider is deprecated, upgrade to v1beta3")]
 public enum V1beta2ProviderStatusConditionsStatusEnum
@@ -207,7 +207,7 @@ public enum V1beta2ProviderStatusConditionsStatusEnum
 }
 
 /// <summary>Condition contains details for one aspect of the current state of this API Resource.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Provider is deprecated, upgrade to v1beta3")]
 public partial class V1beta2ProviderStatusConditions
@@ -254,7 +254,7 @@ public partial class V1beta2ProviderStatusConditions
 }
 
 /// <summary>ProviderStatus defines the observed state of the Provider.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Provider is deprecated, upgrade to v1beta3")]
 public partial class V1beta2ProviderStatus
@@ -277,7 +277,7 @@ public partial class V1beta2ProviderStatus
 }
 
 /// <summary>Provider is the Schema for the providers API.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.Obsolete("v1beta2 Provider is deprecated, upgrade to v1beta3")]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]

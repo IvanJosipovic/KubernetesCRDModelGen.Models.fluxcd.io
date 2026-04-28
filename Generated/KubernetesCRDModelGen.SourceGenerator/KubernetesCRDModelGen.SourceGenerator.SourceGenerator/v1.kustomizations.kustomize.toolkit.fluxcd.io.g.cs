@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace KubernetesCRDModelGen.Models.kustomize.toolkit.fluxcd.io;
 /// <summary>Kustomization is the Schema for the kustomizations API.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
 public partial class V1KustomizationList : IKubernetesObject<V1ListMeta>, IItems<V1Kustomization>
@@ -41,7 +41,7 @@ public partial class V1KustomizationList : IKubernetesObject<V1ListMeta>, IItems
 /// applied to all resources. Any existing label or annotation will be
 /// overridden if its key matches a common one.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecCommonMetadata
 {
@@ -55,7 +55,7 @@ public partial class V1KustomizationSpecCommonMetadata
 }
 
 /// <summary>Provider is the name of the decryption engine.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1KustomizationSpecDecryptionProviderEnum>))]
 public enum V1KustomizationSpecDecryptionProviderEnum
 {
@@ -69,7 +69,7 @@ public enum V1KustomizationSpecDecryptionProviderEnum
 /// takes priority to secret-less authentication with the ServiceAccountName
 /// field.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecDecryptionSecretRef
 {
@@ -79,7 +79,7 @@ public partial class V1KustomizationSpecDecryptionSecretRef
 }
 
 /// <summary>Decrypt Kubernetes secrets before applying them on the cluster.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecDecryption
 {
@@ -113,7 +113,7 @@ public partial class V1KustomizationSpecDecryption
 /// &apos;WaitForTermination&apos;, &apos;Orphan&apos;). &apos;MirrorPrune&apos; mirrors the Prune field
 /// (orphan if false, delete if true). Defaults to &apos;MirrorPrune&apos;.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1KustomizationSpecDeletionPolicyEnum>))]
 public enum V1KustomizationSpecDeletionPolicyEnum
 {
@@ -128,7 +128,7 @@ public enum V1KustomizationSpecDeletionPolicyEnum
 }
 
 /// <summary>DependencyReference defines a Kustomization dependency on another Kustomization resource.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecDependsOn
 {
@@ -155,7 +155,7 @@ public partial class V1KustomizationSpecDependsOn
 }
 
 /// <summary>CustomHealthCheck defines the health check for custom resources.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecHealthCheckExprs
 {
@@ -193,7 +193,7 @@ public partial class V1KustomizationSpecHealthCheckExprs
 /// NamespacedObjectKindReference contains enough information to locate the typed referenced Kubernetes resource object
 /// in any namespace.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecHealthChecks
 {
@@ -215,7 +215,7 @@ public partial class V1KustomizationSpecHealthChecks
 }
 
 /// <summary>Image contains an image name, a new name, a new tag or digest, which will replace the original name and tag.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecImages
 {
@@ -270,7 +270,7 @@ public partial class V1KustomizationSpecImages
 /// 
 /// Mutually exclusive with SecretRef.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecKubeConfigConfigMapRef
 {
@@ -289,7 +289,7 @@ public partial class V1KustomizationSpecKubeConfigConfigMapRef
 /// binaries and credentials to the Pod that is responsible for reconciling
 /// Kubernetes resources. Supported only for the generic provider.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecKubeConfigSecretRef
 {
@@ -311,7 +311,7 @@ public partial class V1KustomizationSpecKubeConfigSecretRef
 /// a controller level fallback for when KustomizationSpec.ServiceAccountName
 /// is empty.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecKubeConfig
 {
@@ -364,7 +364,7 @@ public partial class V1KustomizationSpecKubeConfig
 }
 
 /// <summary>Target points to the resources that the patch document should be applied to.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecPatchesTarget
 {
@@ -422,7 +422,7 @@ public partial class V1KustomizationSpecPatchesTarget
 /// Patch contains an inline StrategicMerge or JSON6902 patch, and the target the patch should
 /// be applied to.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecPatches
 {
@@ -439,7 +439,7 @@ public partial class V1KustomizationSpecPatches
 }
 
 /// <summary>Kind of the values referent, valid values are (&apos;Secret&apos;, &apos;ConfigMap&apos;).</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1KustomizationSpecPostBuildSubstituteFromKindEnum>))]
 public enum V1KustomizationSpecPostBuildSubstituteFromKindEnum
 {
@@ -453,7 +453,7 @@ public enum V1KustomizationSpecPostBuildSubstituteFromKindEnum
 /// SubstituteReference contains a reference to a resource containing
 /// the variables name and value.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecPostBuildSubstituteFrom
 {
@@ -481,7 +481,7 @@ public partial class V1KustomizationSpecPostBuildSubstituteFrom
 /// PostBuild describes which actions to perform on the YAML manifest
 /// generated by building the kustomize overlay.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecPostBuild
 {
@@ -507,7 +507,7 @@ public partial class V1KustomizationSpecPostBuild
 }
 
 /// <summary>Kind of the referent.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1KustomizationSpecSourceRefKindEnum>))]
 public enum V1KustomizationSpecSourceRefKindEnum
 {
@@ -522,7 +522,7 @@ public enum V1KustomizationSpecSourceRefKindEnum
 }
 
 /// <summary>Reference of the source where the kustomization file is.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecSourceRef
 {
@@ -550,7 +550,7 @@ public partial class V1KustomizationSpecSourceRef
 /// KustomizationSpec defines the configuration to calculate the desired state
 /// from a Source using Kustomize.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpec
 {
@@ -725,7 +725,7 @@ public partial class V1KustomizationSpec
 }
 
 /// <summary>status of the condition, one of True, False, Unknown.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1KustomizationStatusConditionsStatusEnum>))]
 public enum V1KustomizationStatusConditionsStatusEnum
 {
@@ -738,7 +738,7 @@ public enum V1KustomizationStatusConditionsStatusEnum
 }
 
 /// <summary>Condition contains details for one aspect of the current state of this API Resource.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationStatusConditions
 {
@@ -787,7 +787,7 @@ public partial class V1KustomizationStatusConditions
 /// Snapshot represents a point-in-time record of a group of resources reconciliation,
 /// including timing information, status, and a unique digest identifier.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationStatusHistory
 {
@@ -821,7 +821,7 @@ public partial class V1KustomizationStatusHistory
 }
 
 /// <summary>ResourceRef contains the information necessary to locate a resource within a cluster.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationStatusInventoryEntries
 {
@@ -841,7 +841,7 @@ public partial class V1KustomizationStatusInventoryEntries
 /// Inventory contains the list of Kubernetes resource object references that
 /// have been successfully applied.
 /// </summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationStatusInventory
 {
@@ -851,7 +851,7 @@ public partial class V1KustomizationStatusInventory
 }
 
 /// <summary>KustomizationStatus defines the observed state of a kustomization.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationStatus
 {
@@ -907,7 +907,7 @@ public partial class V1KustomizationStatus
 }
 
 /// <summary>Kustomization is the Schema for the kustomizations API.</summary>
-[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.5.3+0316f97acf12de380316633df08e7f13a064978d")]
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [KubernetesEntity(Group = KubeGroup, Kind = KubeKind, ApiVersion = KubeApiVersion, PluralName = KubePluralName)]
 public partial class V1Kustomization : IKubernetesObject<V1ObjectMeta>, ISpec<V1KustomizationSpec?>, IStatus<V1KustomizationStatus?>
