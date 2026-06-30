@@ -2,7 +2,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.19.0
+    controller-gen.kubebuilder.io/version: v0.21.0
   labels:
     app.kubernetes.io/component: source-controller
     app.kubernetes.io/part-of: flux
@@ -11,6 +11,10 @@ spec:
   group: source.toolkit.fluxcd.io
   names:
     kind: GitRepository
+    categories:
+    - all
+    - fluxcd
+    - fluxcd-sources
     listKind: GitRepositoryList
     plural: gitrepositories
     shortNames:
@@ -107,10 +111,11 @@ spec:
                 type: string
               provider:
                 description: |-
-                  Provider used for authentication, can be 'azure', 'github', 'generic'.
+                  Provider used for authentication, can be 'aws', 'azure', 'github', 'generic'.
                   When not specified, defaults to 'generic'.
                 enum:
                 - generic
+                - aws
                 - azure
                 - github
                 type: string
@@ -177,7 +182,7 @@ spec:
               serviceAccountName:
                 description: |-
                   ServiceAccountName is the name of the Kubernetes ServiceAccount used to
-                  authenticate to the GitRepository. This field is only supported for 'azure' provider.
+                  authenticate to the GitRepository. This field is only supported for 'azure' and 'aws' providers.
                 type: string
               sparseCheckout:
                 description: |-
@@ -223,7 +228,8 @@ spec:
                   secretRef:
                     description: |-
                       SecretRef specifies the Secret containing the public keys of trusted Git
-                      authors.
+                      authors. PGP public keys must be stored under keys with the .asc suffix,
+                      and SSH public keys must be stored under keys with the .sshpub suffix.
                     properties:
                       name:
                         description: Name of the referent.
@@ -239,8 +245,8 @@ spec:
             - url
             type: object
             x-kubernetes-validations:
-            - message: serviceAccountName can only be set when provider is 'azure'
-              rule: "!has(self.serviceAccountName) || (has(self.provider) && self.provider == 'azure')"
+            - message: serviceAccountName can only be set when provider is 'azure' or 'aws'
+              rule: "!has(self.serviceAccountName) || (has(self.provider) && (self.provider == 'azure' || self.provider == 'aws'))"
           status:
             default:
               observedGeneration: -1

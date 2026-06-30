@@ -110,10 +110,22 @@ public partial class V1ImageUpdateAutomationSpecGitCommitAuthor
 }
 
 /// <summary>
-/// SecretRef holds the name to a secret that contains a &apos;git.asc&apos; key
-/// corresponding to the ASCII Armored file containing the GPG signing
-/// keypair as the value. It must be in the same namespace as the
+/// SecretRef references a Secret containing the signing key. For type
+/// &apos;gpg&apos;, the Secret must contain a &apos;git.asc&apos; (ASCII-armored OpenPGP
+/// keypair) and may contain a &apos;passphrase&apos;. For type &apos;ssh&apos;, the Secret
+/// must contain an &apos;identity&apos; (an SSH private key in any format
+/// golang.org/x/crypto/ssh.ParsePrivateKey accepts; typically the
+/// OpenSSH format produced by &apos;ssh-keygen&apos;) and may contain a &apos;password&apos;
+/// (the key&apos;s passphrase). The SSH conventions match the GitRepository
+/// SSH transport-auth Secret format, allowing a single Secret to serve
+/// both transport and signing when the ImageUpdateAutomation lives in
+/// the same namespace as the GitRepository.
+/// 
+/// The Secret itself must live in the same namespace as the
 /// ImageUpdateAutomation.
+/// 
+/// Supported SSH key algorithms: ed25519, ecdsa-sha2-nistp256/384/521,
+/// and rsa (&gt;= 2048-bit).
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -124,19 +136,55 @@ public partial class V1ImageUpdateAutomationSpecGitCommitSigningKeySecretRef
     public required string Name { get; set; }
 }
 
-/// <summary>SigningKey provides the option to sign commits with a GPG key</summary>
+/// <summary>
+/// Type selects the signing-key format expected in the referenced
+/// Secret. When empty, the controller defaults to &apos;gpg&apos;.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[JsonConverter(typeof(JsonStringEnumConverter<V1ImageUpdateAutomationSpecGitCommitSigningKeyTypeEnum>))]
+public enum V1ImageUpdateAutomationSpecGitCommitSigningKeyTypeEnum
+{
+    [EnumMember(Value = "gpg"), JsonStringEnumMemberName("gpg")]
+    Gpg,
+    [EnumMember(Value = "ssh"), JsonStringEnumMemberName("ssh")]
+    Ssh
+}
+
+/// <summary>
+/// SigningKey provides the option to sign commits with an OpenPGP or
+/// SSH signing key, referenced from a Secret. See SigningKey.
+/// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1ImageUpdateAutomationSpecGitCommitSigningKey
 {
     /// <summary>
-    /// SecretRef holds the name to a secret that contains a &apos;git.asc&apos; key
-    /// corresponding to the ASCII Armored file containing the GPG signing
-    /// keypair as the value. It must be in the same namespace as the
+    /// SecretRef references a Secret containing the signing key. For type
+    /// &apos;gpg&apos;, the Secret must contain a &apos;git.asc&apos; (ASCII-armored OpenPGP
+    /// keypair) and may contain a &apos;passphrase&apos;. For type &apos;ssh&apos;, the Secret
+    /// must contain an &apos;identity&apos; (an SSH private key in any format
+    /// golang.org/x/crypto/ssh.ParsePrivateKey accepts; typically the
+    /// OpenSSH format produced by &apos;ssh-keygen&apos;) and may contain a &apos;password&apos;
+    /// (the key&apos;s passphrase). The SSH conventions match the GitRepository
+    /// SSH transport-auth Secret format, allowing a single Secret to serve
+    /// both transport and signing when the ImageUpdateAutomation lives in
+    /// the same namespace as the GitRepository.
+    /// 
+    /// The Secret itself must live in the same namespace as the
     /// ImageUpdateAutomation.
+    /// 
+    /// Supported SSH key algorithms: ed25519, ecdsa-sha2-nistp256/384/521,
+    /// and rsa (&gt;= 2048-bit).
     /// </summary>
     [JsonPropertyName("secretRef")]
     public required V1ImageUpdateAutomationSpecGitCommitSigningKeySecretRef SecretRef { get; set; }
+
+    /// <summary>
+    /// Type selects the signing-key format expected in the referenced
+    /// Secret. When empty, the controller defaults to &apos;gpg&apos;.
+    /// </summary>
+    [JsonPropertyName("type")]
+    public V1ImageUpdateAutomationSpecGitCommitSigningKeyTypeEnum? Type { get; set; }
 }
 
 /// <summary>Commit specifies how to commit to the git repository.</summary>
@@ -166,7 +214,10 @@ public partial class V1ImageUpdateAutomationSpecGitCommit
     [JsonPropertyName("messageTemplateValues")]
     public IDictionary<string, string>? MessageTemplateValues { get; set; }
 
-    /// <summary>SigningKey provides the option to sign commits with a GPG key</summary>
+    /// <summary>
+    /// SigningKey provides the option to sign commits with an OpenPGP or
+    /// SSH signing key, referenced from a Secret. See SigningKey.
+    /// </summary>
     [JsonPropertyName("signingKey")]
     public V1ImageUpdateAutomationSpecGitCommitSigningKey? SigningKey { get; set; }
 }

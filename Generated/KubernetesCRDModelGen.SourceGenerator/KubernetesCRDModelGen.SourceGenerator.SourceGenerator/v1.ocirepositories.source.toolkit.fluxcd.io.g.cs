@@ -227,6 +227,21 @@ public partial class V1OCIRepositorySpecVerifySecretRef
 }
 
 /// <summary>
+/// TrustedRootSecretRef specifies the Kubernetes Secret containing a
+/// Sigstore trusted_root.json file. This enables verification against
+/// self-hosted Sigstore infrastructure (custom Fulcio CA, self-hosted
+/// Rekor instance). The Secret must contain a key named &quot;trusted_root.json&quot;.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1OCIRepositorySpecVerifyTrustedRootSecretRef
+{
+    /// <summary>Name of the referent.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
 /// Verify contains the secret name containing the trusted public keys
 /// used to verify the signature and specifies which provider to use to check
 /// whether OCI image is authentic.
@@ -254,6 +269,15 @@ public partial class V1OCIRepositorySpecVerify
     /// </summary>
     [JsonPropertyName("secretRef")]
     public V1OCIRepositorySpecVerifySecretRef? SecretRef { get; set; }
+
+    /// <summary>
+    /// TrustedRootSecretRef specifies the Kubernetes Secret containing a
+    /// Sigstore trusted_root.json file. This enables verification against
+    /// self-hosted Sigstore infrastructure (custom Fulcio CA, self-hosted
+    /// Rekor instance). The Secret must contain a key named &quot;trusted_root.json&quot;.
+    /// </summary>
+    [JsonPropertyName("trustedRootSecretRef")]
+    public V1OCIRepositorySpecVerifyTrustedRootSecretRef? TrustedRootSecretRef { get; set; }
 }
 
 /// <summary>OCIRepositorySpec defines the desired state of OCIRepository</summary>

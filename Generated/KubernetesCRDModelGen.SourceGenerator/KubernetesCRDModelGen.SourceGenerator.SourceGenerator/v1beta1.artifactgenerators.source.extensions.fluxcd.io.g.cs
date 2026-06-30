@@ -63,14 +63,18 @@ public partial class V1beta1ArtifactGeneratorSpecArtifactsCopy
 {
     /// <summary>
     /// Exclude specifies a list of glob patterns to exclude
-    /// files and dirs matched by the &apos;From&apos; field.
+    /// files and dirs matched by the &apos;From&apos; field. Patterns are matched
+    /// against paths relative to the source alias root or to the non-glob
+    /// prefix of &apos;From&apos;. Patterns without a separator (e.g. &quot;*.md&quot;) match
+    /// the file name at any depth.
     /// </summary>
     [JsonPropertyName("exclude")]
     public IList<string>? Exclude { get; set; }
 
     /// <summary>
     /// From specifies the source (by alias) and the glob pattern to match files.
-    /// The format is &quot;@&lt;alias&gt;/&lt;glob-pattern&gt; &quot;.
+    /// The format is &quot;@&lt;alias&gt;/&lt;glob-pattern&gt; &quot;. When pathPattern is set,
+    /// the path may use capture placeholders such as &quot;{app}&quot;.
     /// </summary>
     [JsonPropertyName("from")]
     public required string From { get; set; }
@@ -90,7 +94,8 @@ public partial class V1beta1ArtifactGeneratorSpecArtifactsCopy
     /// <summary>
     /// To specifies the destination path within the artifact.
     /// The format is &quot;@artifact/path&quot;, the alias &quot;artifact&quot;
-    /// refers to the root path of the generated artifact.
+    /// refers to the root path of the generated artifact. When pathPattern
+    /// is set, the path may use capture placeholders such as &quot;{app}&quot;.
     /// </summary>
     [JsonPropertyName("to")]
     public required string To { get; set; }
@@ -112,7 +117,10 @@ public partial class V1beta1ArtifactGeneratorSpecArtifacts
     [JsonPropertyName("copy")]
     public required IList<V1beta1ArtifactGeneratorSpecArtifactsCopy> Copy { get; set; }
 
-    /// <summary>Name is the name of the generated artifact.</summary>
+    /// <summary>
+    /// Name is the name of the generated artifact.
+    /// When pathPattern is set, this field may use capture placeholders such as &quot;{app}&quot;.
+    /// </summary>
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
@@ -134,6 +142,24 @@ public partial class V1beta1ArtifactGeneratorSpecArtifacts
     /// </summary>
     [JsonPropertyName("revision")]
     public string? Revision { get; set; }
+}
+
+/// <summary>
+/// CommonMetadata specifies the common labels and annotations that are
+/// applied to all resources. Any existing label or annotation will be
+/// overridden if its key matches a common one.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1beta1ArtifactGeneratorSpecCommonMetadata
+{
+    /// <summary>Annotations to be added to the object&apos;s metadata.</summary>
+    [JsonPropertyName("annotations")]
+    public IDictionary<string, string>? Annotations { get; set; }
+
+    /// <summary>Labels to be added to the object&apos;s metadata.</summary>
+    [JsonPropertyName("labels")]
+    public IDictionary<string, string>? Labels { get; set; }
 }
 
 /// <summary>Kind of the source.</summary>
@@ -191,6 +217,22 @@ public partial class V1beta1ArtifactGeneratorSpec
     /// <summary>OutputArtifacts is a list of output artifacts to be generated.</summary>
     [JsonPropertyName("artifacts")]
     public required IList<V1beta1ArtifactGeneratorSpecArtifacts> Artifacts { get; set; }
+
+    /// <summary>
+    /// CommonMetadata specifies the common labels and annotations that are
+    /// applied to all resources. Any existing label or annotation will be
+    /// overridden if its key matches a common one.
+    /// </summary>
+    [JsonPropertyName("commonMetadata")]
+    public V1beta1ArtifactGeneratorSpecCommonMetadata? CommonMetadata { get; set; }
+
+    /// <summary>
+    /// PathPattern specifies a directory traversal pattern to match within the sources.
+    /// The format is &quot;@&lt;alias&gt;/&lt;pattern&gt; &quot;. Named captures in the pattern (e.g. &quot;{app}&quot;)
+    /// can be used as placeholders in OutputArtifacts fields.
+    /// </summary>
+    [JsonPropertyName("pathPattern")]
+    public string? PathPattern { get; set; }
 
     /// <summary>
     /// Sources is a list of references to the Flux source-controller
