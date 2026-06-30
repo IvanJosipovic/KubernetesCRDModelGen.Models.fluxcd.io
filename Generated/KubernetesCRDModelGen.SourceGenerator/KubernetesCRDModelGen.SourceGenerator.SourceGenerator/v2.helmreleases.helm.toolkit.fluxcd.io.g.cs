@@ -295,7 +295,10 @@ public partial class V2HelmReleaseSpecCommonMetadata
     public IDictionary<string, string>? Labels { get; set; }
 }
 
-/// <summary>DependencyReference defines a HelmRelease dependency on another HelmRelease resource.</summary>
+/// <summary>
+/// DependencyReference contains enough information to locate the referenced Kubernetes resource object
+/// and optional CEL expression to assess its readiness.
+/// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V2HelmReleaseSpecDependsOn
@@ -305,8 +308,8 @@ public partial class V2HelmReleaseSpecDependsOn
     public required string Name { get; set; }
 
     /// <summary>
-    /// Namespace of the referent, defaults to the namespace of the HelmRelease
-    /// resource object that contains the reference.
+    /// Namespace of the referent, defaults to the namespace of the resource
+    /// object that contains the reference.
     /// </summary>
     [JsonPropertyName("namespace")]
     public string? Namespace { get; set; }
@@ -481,7 +484,7 @@ public partial class V2HelmReleaseSpecHealthCheckExprs
 
     /// <summary>Kind of the custom resource under evaluation.</summary>
     [JsonPropertyName("kind")]
-    public required string Kind { get; set; }
+    public string? Kind { get; set; }
 }
 
 /// <summary>
@@ -823,6 +826,25 @@ public partial class V2HelmReleaseSpecKubeConfig
     public V2HelmReleaseSpecKubeConfigSecretRef? SecretRef { get; set; }
 }
 
+/// <summary>
+/// PostRenderStrategy defines the strategy for sending hooks to post-renderers.
+/// Valid values are &apos;nohooks&apos; (hooks not sent to post-renderers, Helm 3 behavior),
+/// &apos;combined&apos; (hooks and templates sent together, Helm 4 default), and &apos;separate&apos;
+/// (hooks and templates sent in separate streams, Helm 4.2 opt-in).
+/// Defaults to &apos;combined&apos;, or &apos;nohooks&apos; when the UseHelm3Defaults feature gate is enabled.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[JsonConverter(typeof(JsonStringEnumConverter<V2HelmReleaseSpecPostRenderStrategyEnum>))]
+public enum V2HelmReleaseSpecPostRenderStrategyEnum
+{
+    [EnumMember(Value = "nohooks"), JsonStringEnumMemberName("nohooks")]
+    Nohooks,
+    [EnumMember(Value = "combined"), JsonStringEnumMemberName("combined")]
+    Combined,
+    [EnumMember(Value = "separate"), JsonStringEnumMemberName("separate")]
+    Separate
+}
+
 /// <summary>Image contains an image name, a new name, a new tag or digest, which will replace the original name and tag.</summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -1145,6 +1167,24 @@ public partial class V2HelmReleaseSpecUninstall
 }
 
 /// <summary>
+/// ChartNameChangeStrategy defines the strategy to use when a Helm chart name changes.
+/// Valid values are &apos;Reinstall&apos; or &apos;InPlaceUpdate&apos;. Defaults to &apos;Reinstall&apos; if omitted.
+/// 
+/// Reinstall: Reinstall the Helm release, uninstalling the existing Helm release.
+/// 
+/// InPlaceUpdate: Update the Helm release in place.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[JsonConverter(typeof(JsonStringEnumConverter<V2HelmReleaseSpecUpgradeChartNameChangeStrategyEnum>))]
+public enum V2HelmReleaseSpecUpgradeChartNameChangeStrategyEnum
+{
+    [EnumMember(Value = "InPlaceUpdate"), JsonStringEnumMemberName("InPlaceUpdate")]
+    InPlaceUpdate,
+    [EnumMember(Value = "Reinstall"), JsonStringEnumMemberName("Reinstall")]
+    Reinstall
+}
+
+/// <summary>
 /// CRDs upgrade CRDs from the Helm Chart&apos;s crds directory according
 /// to the CRD upgrade policy provided here. Valid values are `Skip`,
 /// `Create` or `CreateReplace`. Default is `Skip` and if omitted
@@ -1276,6 +1316,17 @@ public partial class V2HelmReleaseSpecUpgradeStrategy
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V2HelmReleaseSpecUpgrade
 {
+    /// <summary>
+    /// ChartNameChangeStrategy defines the strategy to use when a Helm chart name changes.
+    /// Valid values are &apos;Reinstall&apos; or &apos;InPlaceUpdate&apos;. Defaults to &apos;Reinstall&apos; if omitted.
+    /// 
+    /// Reinstall: Reinstall the Helm release, uninstalling the existing Helm release.
+    /// 
+    /// InPlaceUpdate: Update the Helm release in place.
+    /// </summary>
+    [JsonPropertyName("chartNameChangeStrategy")]
+    public V2HelmReleaseSpecUpgradeChartNameChangeStrategyEnum? ChartNameChangeStrategy { get; set; }
+
     /// <summary>
     /// CleanupOnFail allows deletion of new resources created during the Helm
     /// upgrade action when it fails.
@@ -1414,6 +1465,19 @@ public partial class V2HelmReleaseSpecValuesFrom
     /// <summary>Kind of the values referent, valid values are (&apos;Secret&apos;, &apos;ConfigMap&apos;).</summary>
     [JsonPropertyName("kind")]
     public required V2HelmReleaseSpecValuesFromKindEnum Kind { get; set; }
+
+    /// <summary>
+    /// Literal marks this ValuesReference as a literal value. When set in
+    /// combination with TargetPath, the referenced value is merged at the target
+    /// path without interpreting Helm&apos;s `--set` syntax (commas, brackets, dots,
+    /// equal signs, etc.), mirroring the behavior of `helm --set-literal`. This
+    /// is the only safe way to inject arbitrary file content (config files, JSON
+    /// blobs, multi-line strings containing special characters) through
+    /// `valuesFrom`. Has no effect when TargetPath is empty: in that mode the
+    /// referenced value is always YAML-merged at the root.
+    /// </summary>
+    [JsonPropertyName("literal")]
+    public bool? Literal { get; set; }
 
     /// <summary>
     /// Name of the values referent. Should reside in the same namespace as the
@@ -1579,6 +1643,16 @@ public partial class V2HelmReleaseSpec
     /// </summary>
     [JsonPropertyName("persistentClient")]
     public bool? PersistentClient { get; set; }
+
+    /// <summary>
+    /// PostRenderStrategy defines the strategy for sending hooks to post-renderers.
+    /// Valid values are &apos;nohooks&apos; (hooks not sent to post-renderers, Helm 3 behavior),
+    /// &apos;combined&apos; (hooks and templates sent together, Helm 4 default), and &apos;separate&apos;
+    /// (hooks and templates sent in separate streams, Helm 4.2 opt-in).
+    /// Defaults to &apos;combined&apos;, or &apos;nohooks&apos; when the UseHelm3Defaults feature gate is enabled.
+    /// </summary>
+    [JsonPropertyName("postRenderStrategy")]
+    public V2HelmReleaseSpecPostRenderStrategyEnum? PostRenderStrategy { get; set; }
 
     /// <summary>
     /// PostRenderers holds an array of Helm PostRenderers, which will be applied in order

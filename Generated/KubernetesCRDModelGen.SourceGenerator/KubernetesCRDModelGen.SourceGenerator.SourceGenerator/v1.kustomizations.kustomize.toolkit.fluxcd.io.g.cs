@@ -36,6 +36,17 @@ public partial class V1KustomizationList : IKubernetesObject<V1ListMeta>, IItems
     public required IList<V1Kustomization> Items { get; set; }
 }
 
+/// <summary>BuildMetadataOption defines the supported buildMetadata options.</summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[JsonConverter(typeof(JsonStringEnumConverter<V1KustomizationSpecBuildMetadataEnum>))]
+public enum V1KustomizationSpecBuildMetadataEnum
+{
+    [EnumMember(Value = "originAnnotations"), JsonStringEnumMemberName("originAnnotations")]
+    OriginAnnotations,
+    [EnumMember(Value = "transformerAnnotations"), JsonStringEnumMemberName("transformerAnnotations")]
+    TransformerAnnotations
+}
+
 /// <summary>
 /// CommonMetadata specifies the common labels and annotations that are
 /// applied to all resources. Any existing label or annotation will be
@@ -127,7 +138,10 @@ public enum V1KustomizationSpecDeletionPolicyEnum
     Orphan
 }
 
-/// <summary>DependencyReference defines a Kustomization dependency on another Kustomization resource.</summary>
+/// <summary>
+/// DependencyReference contains enough information to locate the referenced Kubernetes resource object
+/// and optional CEL expression to assess its readiness.
+/// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 public partial class V1KustomizationSpecDependsOn
@@ -137,8 +151,8 @@ public partial class V1KustomizationSpecDependsOn
     public required string Name { get; set; }
 
     /// <summary>
-    /// Namespace of the referent, defaults to the namespace of the Kustomization
-    /// resource object that contains the reference.
+    /// Namespace of the referent, defaults to the namespace of the resource
+    /// object that contains the reference.
     /// </summary>
     [JsonPropertyName("namespace")]
     public string? Namespace { get; set; }
@@ -186,7 +200,7 @@ public partial class V1KustomizationSpecHealthCheckExprs
 
     /// <summary>Kind of the custom resource under evaluation.</summary>
     [JsonPropertyName("kind")]
-    public required string Kind { get; set; }
+    public string? Kind { get; set; }
 }
 
 /// <summary>
@@ -212,6 +226,91 @@ public partial class V1KustomizationSpecHealthChecks
     /// <summary>Namespace of the referent, when not specified it acts as LocalObjectReference.</summary>
     [JsonPropertyName("namespace")]
     public string? Namespace { get; set; }
+}
+
+/// <summary>
+/// Target is a selector for specifying Kubernetes objects to which this
+/// rule applies.
+/// If Target is not set, the Paths will be ignored for all Kubernetes
+/// objects within the manifest of the Kustomization.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1KustomizationSpecIgnoreTarget
+{
+    /// <summary>
+    /// AnnotationSelector is a string that follows the label selection expression
+    /// https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#api
+    /// It matches with the resource annotations.
+    /// </summary>
+    [JsonPropertyName("annotationSelector")]
+    public string? AnnotationSelector { get; set; }
+
+    /// <summary>
+    /// Group is the API group to select resources from.
+    /// Together with Version and Kind it is capable of unambiguously identifying and/or selecting resources.
+    /// https://github.com/kubernetes/community/blob/master/contributors/design-proposals/api-machinery/api-group.md
+    /// </summary>
+    [JsonPropertyName("group")]
+    public string? Group { get; set; }
+
+    /// <summary>
+    /// Kind of the API Group to select resources from.
+    /// Together with Group and Version it is capable of unambiguously
+    /// identifying and/or selecting resources.
+    /// https://github.com/kubernetes/community/blob/master/contributors/design-proposals/api-machinery/api-group.md
+    /// </summary>
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
+    /// <summary>
+    /// LabelSelector is a string that follows the label selection expression
+    /// https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#api
+    /// It matches with the resource labels.
+    /// </summary>
+    [JsonPropertyName("labelSelector")]
+    public string? LabelSelector { get; set; }
+
+    /// <summary>Name to match resources with.</summary>
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
+    /// <summary>Namespace to select resources from.</summary>
+    [JsonPropertyName("namespace")]
+    public string? Namespace { get; set; }
+
+    /// <summary>
+    /// Version of the API Group to select resources from.
+    /// Together with Group and Kind it is capable of unambiguously identifying and/or selecting resources.
+    /// https://github.com/kubernetes/community/blob/master/contributors/design-proposals/api-machinery/api-group.md
+    /// </summary>
+    [JsonPropertyName("version")]
+    public string? Version { get; set; }
+}
+
+/// <summary>
+/// IgnoreRule defines a rule to selectively disregard specific changes during
+/// the drift detection process.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1KustomizationSpecIgnore
+{
+    /// <summary>
+    /// Paths is a list of JSON Pointer (RFC 6901) paths to be excluded from
+    /// consideration in a Kubernetes object.
+    /// </summary>
+    [JsonPropertyName("paths")]
+    public required IList<string> Paths { get; set; }
+
+    /// <summary>
+    /// Target is a selector for specifying Kubernetes objects to which this
+    /// rule applies.
+    /// If Target is not set, the Paths will be ignored for all Kubernetes
+    /// objects within the manifest of the Kustomization.
+    /// </summary>
+    [JsonPropertyName("target")]
+    public V1KustomizationSpecIgnoreTarget? Target { get; set; }
 }
 
 /// <summary>Image contains an image name, a new name, a new tag or digest, which will replace the original name and tag.</summary>
@@ -478,6 +577,25 @@ public partial class V1KustomizationSpecPostBuildSubstituteFrom
 }
 
 /// <summary>
+/// SubstituteStrategy defines the strategy for substituting variables in the YAML manifests.
+/// Valid values are:
+/// 
+///  - WithVariables (the default): require at least one variable to be defined,
+///    either through the inline map or through the resolved references to ConfigMaps
+///    and Secrets.
+///  - Always: perform the substitution even if no variables are defined.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[JsonConverter(typeof(JsonStringEnumConverter<V1KustomizationSpecPostBuildSubstituteStrategyEnum>))]
+public enum V1KustomizationSpecPostBuildSubstituteStrategyEnum
+{
+    [EnumMember(Value = "WithVariables"), JsonStringEnumMemberName("WithVariables")]
+    WithVariables,
+    [EnumMember(Value = "Always"), JsonStringEnumMemberName("Always")]
+    Always
+}
+
+/// <summary>
 /// PostBuild describes which actions to perform on the YAML manifest
 /// generated by building the kustomize overlay.
 /// </summary>
@@ -504,6 +622,18 @@ public partial class V1KustomizationSpecPostBuild
     /// </summary>
     [JsonPropertyName("substituteFrom")]
     public IList<V1KustomizationSpecPostBuildSubstituteFrom>? SubstituteFrom { get; set; }
+
+    /// <summary>
+    /// SubstituteStrategy defines the strategy for substituting variables in the YAML manifests.
+    /// Valid values are:
+    /// 
+    ///  - WithVariables (the default): require at least one variable to be defined,
+    ///    either through the inline map or through the resolved references to ConfigMaps
+    ///    and Secrets.
+    ///  - Always: perform the substitution even if no variables are defined.
+    /// </summary>
+    [JsonPropertyName("substituteStrategy")]
+    public V1KustomizationSpecPostBuildSubstituteStrategyEnum? SubstituteStrategy { get; set; }
 }
 
 /// <summary>Kind of the referent.</summary>
@@ -555,6 +685,15 @@ public partial class V1KustomizationSpecSourceRef
 public partial class V1KustomizationSpec
 {
     /// <summary>
+    /// BuildMetadata specifies which kustomize build metadata should be added
+    /// to the built resources. The allowed values are &apos;originAnnotations&apos; to
+    /// annotate resources with their source origin, and &apos;transformerAnnotations&apos;
+    /// to annotate resources with the transformers that produced them.
+    /// </summary>
+    [JsonPropertyName("buildMetadata")]
+    public IList<V1KustomizationSpecBuildMetadataEnum>? BuildMetadata { get; set; }
+
+    /// <summary>
     /// CommonMetadata specifies the common labels and annotations that are
     /// applied to all resources. Any existing label or annotation will be
     /// overridden if its key matches a common one.
@@ -605,6 +744,15 @@ public partial class V1KustomizationSpec
     /// <summary>A list of resources to be included in the health assessment.</summary>
     [JsonPropertyName("healthChecks")]
     public IList<V1KustomizationSpecHealthChecks>? HealthChecks { get; set; }
+
+    /// <summary>
+    /// Ignore is a list of rules for specifying which changes to ignore
+    /// during drift detection. These rules are applied to the resources managed
+    /// by the Kustomization and are used to exclude specific JSON pointer paths
+    /// from the drift detection and apply process.
+    /// </summary>
+    [JsonPropertyName("ignore")]
+    public IList<V1KustomizationSpecIgnore>? Ignore { get; set; }
 
     /// <summary>
     /// IgnoreMissingComponents instructs the controller to ignore Components paths

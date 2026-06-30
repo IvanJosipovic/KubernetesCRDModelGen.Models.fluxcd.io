@@ -80,7 +80,7 @@ public partial class V1GitRepositorySpecInclude
 }
 
 /// <summary>
-/// Provider used for authentication, can be &apos;azure&apos;, &apos;github&apos;, &apos;generic&apos;.
+/// Provider used for authentication, can be &apos;aws&apos;, &apos;azure&apos;, &apos;github&apos;, &apos;generic&apos;.
 /// When not specified, defaults to &apos;generic&apos;.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
@@ -89,6 +89,8 @@ public enum V1GitRepositorySpecProviderEnum
 {
     [EnumMember(Value = "generic"), JsonStringEnumMemberName("generic")]
     Generic,
+    [EnumMember(Value = "aws"), JsonStringEnumMemberName("aws")]
+    Aws,
     [EnumMember(Value = "azure"), JsonStringEnumMemberName("azure")]
     Azure,
     [EnumMember(Value = "github"), JsonStringEnumMemberName("github")]
@@ -187,7 +189,8 @@ public enum V1GitRepositorySpecVerifyModeEnum
 
 /// <summary>
 /// SecretRef specifies the Secret containing the public keys of trusted Git
-/// authors.
+/// authors. PGP public keys must be stored under keys with the .asc suffix,
+/// and SSH public keys must be stored under keys with the .sshpub suffix.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -218,7 +221,8 @@ public partial class V1GitRepositorySpecVerify
 
     /// <summary>
     /// SecretRef specifies the Secret containing the public keys of trusted Git
-    /// authors.
+    /// authors. PGP public keys must be stored under keys with the .asc suffix,
+    /// and SSH public keys must be stored under keys with the .sshpub suffix.
     /// </summary>
     [JsonPropertyName("secretRef")]
     public required V1GitRepositorySpecVerifySecretRef SecretRef { get; set; }
@@ -256,7 +260,7 @@ public partial class V1GitRepositorySpec
     public required string Interval { get; set; }
 
     /// <summary>
-    /// Provider used for authentication, can be &apos;azure&apos;, &apos;github&apos;, &apos;generic&apos;.
+    /// Provider used for authentication, can be &apos;aws&apos;, &apos;azure&apos;, &apos;github&apos;, &apos;generic&apos;.
     /// When not specified, defaults to &apos;generic&apos;.
     /// </summary>
     [JsonPropertyName("provider")]
@@ -296,7 +300,7 @@ public partial class V1GitRepositorySpec
 
     /// <summary>
     /// ServiceAccountName is the name of the Kubernetes ServiceAccount used to
-    /// authenticate to the GitRepository. This field is only supported for &apos;azure&apos; provider.
+    /// authenticate to the GitRepository. This field is only supported for &apos;azure&apos; and &apos;aws&apos; providers.
     /// </summary>
     [JsonPropertyName("serviceAccountName")]
     public string? ServiceAccountName { get; set; }

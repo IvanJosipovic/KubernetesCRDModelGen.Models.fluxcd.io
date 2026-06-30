@@ -36,6 +36,86 @@ public partial class V1ReceiverList : IKubernetesObject<V1ListMeta>, IItems<V1Re
     public required IList<V1Receiver> Items { get; set; }
 }
 
+/// <summary>
+/// OIDCValidation is a CEL boolean expression evaluated against the OIDC token
+/// claims and variables of a &apos;generic-oidc&apos; Receiver.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1ReceiverSpecOidcProvidersValidations
+{
+    /// <summary>Expression is the CEL boolean expression to evaluate.</summary>
+    [JsonPropertyName("expression")]
+    public required string Expression { get; set; }
+
+    /// <summary>Message is returned to the caller when the expression evaluates to false.</summary>
+    [JsonPropertyName("message")]
+    public required string Message { get; set; }
+}
+
+/// <summary>
+/// OIDCVariable is a named CEL expression evaluated against the OIDC token
+/// claims of a &apos;generic-oidc&apos; Receiver.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1ReceiverSpecOidcProvidersVariables
+{
+    /// <summary>Expression is the CEL expression that defines the variable value.</summary>
+    [JsonPropertyName("expression")]
+    public required string Expression { get; set; }
+
+    /// <summary>Name is the variable name; it must be a valid CEL identifier.</summary>
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+}
+
+/// <summary>
+/// OIDCProvider configures an OIDC issuer used to authenticate requests for a
+/// &apos;generic-oidc&apos; Receiver.
+/// </summary>
+[global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class V1ReceiverSpecOidcProviders
+{
+    /// <summary>
+    /// Audience is the expected audience (&apos;aud&apos; claim) for tokens issued by
+    /// this provider. Defaults to &apos;notification-controller&apos;.
+    /// </summary>
+    [JsonPropertyName("audience")]
+    public string? Audience { get; set; }
+
+    /// <summary>
+    /// IssuerURL is the OIDC issuer URL used for provider discovery. It must
+    /// match the &apos;iss&apos; claim of tokens issued by this provider.
+    /// </summary>
+    [JsonPropertyName("issuerURL")]
+    public required string IssuerURL { get; set; }
+
+    /// <summary>
+    /// Validations is the list of CEL boolean expressions evaluated against the
+    /// token claims and the variables. The request is accepted only if all of
+    /// them evaluate to true; the message of each failing expression is returned
+    /// to the caller.
+    /// 
+    /// At least one validation is required. A valid signature alone does not
+    /// authorize a request: public issuers issue tokens to any caller on the
+    /// platform, so the validations must constrain the caller&apos;s identity claims
+    /// (e.g. &apos;repository_owner&apos; for GitHub Actions).
+    /// </summary>
+    [JsonPropertyName("validations")]
+    public required IList<V1ReceiverSpecOidcProvidersValidations> Validations { get; set; }
+
+    /// <summary>
+    /// Variables is an optional list of named CEL expressions, evaluated in order
+    /// and exposed as &apos;vars.&lt;name&gt; &apos;. Each expression can read the token claims
+    /// via &apos;claims&apos; and any variable defined before it. Use it to share
+    /// sub-expressions across validations.
+    /// </summary>
+    [JsonPropertyName("variables")]
+    public IList<V1ReceiverSpecOidcProvidersVariables>? Variables { get; set; }
+}
+
 /// <summary>Kind of the referent</summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [JsonConverter(typeof(JsonStringEnumConverter<V1ReceiverSpecResourcesKindEnum>))]
@@ -68,8 +148,8 @@ public enum V1ReceiverSpecResourcesKindEnum
 }
 
 /// <summary>
-/// CrossNamespaceObjectReference contains enough information to let you locate the
-/// typed referenced object at cluster level
+/// ReceiverResource references a resource to be notified about changes, with an
+/// optional per-resource CEL filter.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -78,6 +158,21 @@ public partial class V1ReceiverSpecResources
     /// <summary>API version of the referent</summary>
     [JsonPropertyName("apiVersion")]
     public string? ApiVersion { get; set; }
+
+    /// <summary>
+    /// Filter is a CEL expression expected to return a boolean that is evaluated
+    /// for each resource matched by this reference when a webhook is received,
+    /// in addition to the top-level resourceFilter. A reconciliation is requested
+    /// only when both expressions (when set) return true.
+    /// The expression can read the resource metadata via &apos;res&apos; and the webhook
+    /// request body via &apos;req&apos;. For generic-oidc receivers, the verified OIDC
+    /// token claims are also available via &apos;claims&apos;.
+    /// When the expression is specified the controller will parse it and mark
+    /// the object as terminally failed if the expression is invalid or does not
+    /// return a boolean.
+    /// </summary>
+    [JsonPropertyName("filter")]
+    public string? Filter { get; set; }
 
     /// <summary>Kind of the referent</summary>
     [JsonPropertyName("kind")]
@@ -110,6 +205,9 @@ public partial class V1ReceiverSpecResources
 /// key. For GCR receivers, the Secret must also contain an &apos;email&apos; key
 /// with the IAM service account email configured on the Pub/Sub push
 /// subscription, and an &apos;audience&apos; key with the expected OIDC token audience.
+/// 
+/// Required for all receiver types except &apos;generic-oidc&apos;, which authenticates
+/// requests using the OIDC token instead and must not set this field.
 /// </summary>
 [global::System.CodeDom.Compiler.GeneratedCode("KubernetesCRDModelGen", "1.6.0+0fbafdb9fc339df17b265ba23ecc4a7be2359877")]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
@@ -132,6 +230,8 @@ public enum V1ReceiverSpecTypeEnum
     Generic,
     [EnumMember(Value = "generic-hmac"), JsonStringEnumMemberName("generic-hmac")]
     GenericHmac,
+    [EnumMember(Value = "generic-oidc"), JsonStringEnumMemberName("generic-oidc")]
+    GenericOidc,
     [EnumMember(Value = "github"), JsonStringEnumMemberName("github")]
     Github,
     [EnumMember(Value = "gitlab"), JsonStringEnumMemberName("gitlab")]
@@ -171,10 +271,23 @@ public partial class V1ReceiverSpec
     public string? Interval { get; set; }
 
     /// <summary>
+    /// OIDCProviders specifies the OIDC providers used to authenticate incoming
+    /// requests when Type is &apos;generic-oidc&apos;. The provider whose IssuerURL matches
+    /// the token&apos;s &apos;iss&apos; claim is used to verify the token signature, expiration
+    /// and audience, and to evaluate the configured CEL validations against the
+    /// token claims.
+    /// </summary>
+    [JsonPropertyName("oidcProviders")]
+    public IList<V1ReceiverSpecOidcProviders>? OidcProviders { get; set; }
+
+    /// <summary>
     /// ResourceFilter is a CEL expression expected to return a boolean that is
     /// evaluated for each resource referenced in the Resources field when a
     /// webhook is received. If the expression returns false then the controller
     /// will not request a reconciliation for the resource.
+    /// The expression can read the resource metadata via &apos;res&apos; and the webhook
+    /// request body via &apos;req&apos;. For generic-oidc receivers, the verified OIDC
+    /// token claims are also available via &apos;claims&apos;.
     /// When the expression is specified the controller will parse it and mark
     /// the object as terminally failed if the expression is invalid or does not
     /// return a boolean.
@@ -192,9 +305,12 @@ public partial class V1ReceiverSpec
     /// key. For GCR receivers, the Secret must also contain an &apos;email&apos; key
     /// with the IAM service account email configured on the Pub/Sub push
     /// subscription, and an &apos;audience&apos; key with the expected OIDC token audience.
+    /// 
+    /// Required for all receiver types except &apos;generic-oidc&apos;, which authenticates
+    /// requests using the OIDC token instead and must not set this field.
     /// </summary>
     [JsonPropertyName("secretRef")]
-    public required V1ReceiverSpecSecretRef SecretRef { get; set; }
+    public V1ReceiverSpecSecretRef? SecretRef { get; set; }
 
     /// <summary>
     /// Suspend tells the controller to suspend subsequent
